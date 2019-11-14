@@ -66,7 +66,7 @@ class StringComparePlugin implements Plugin<Project> {
         }
         println "结束，resource：${result}"
         def fileWriter = new FileWriter(locLanguagePath)
-        def printer = new XmlNodePrinter(new PrintWriter(fileWriter))
+        def printer = new CustomXmlNodePrinter(new PrintWriter(fileWriter))
         printer.preserveWhitespace = true
         printer.print(result)
     }
@@ -78,7 +78,15 @@ class StringComparePlugin implements Plugin<Project> {
      */
     static String formatContent(String content) {
         def result = content.trim()
-        def escapeMap = ['>': '&gt;', '<': '&lt;', '\'': '&apos;', '"': '&quot;', '%@': '%s']
+        def escapeMap = ['\\>': '\\&gt;',
+                         '>': '\\&gt;',
+                         '\\<': '\\&lt;',
+                         '<': '\\&lt;',
+                         '\\\'': '\\&apos;',
+                         '\'': '\\&apos;',
+                         '\\"': '\\&quot;',
+                         '"': '\\&quot;',
+                         '%@': '%s']
         escapeMap.each { Map.Entry<String, String> entry ->
             println "old:${entry.key},new:${entry.value}"
             result = result.replace(entry.key, entry.value)

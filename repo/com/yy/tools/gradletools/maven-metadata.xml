@@ -3,10 +3,12 @@
   <groupId>com.yy.tools</groupId>
   <artifactId>gradletools</artifactId>
   <versioning>
-    <release>1.0.2</release>
+    <release>1.0.4</release>
     <versions>
       <version>1.0.2</version>
+      <version>1.0.3</version>
+      <version>1.0.4</version>
     </versions>
-    <lastUpdated>20191114015812</lastUpdated>
+    <lastUpdated>20191114103025</lastUpdated>
   </versioning>
 </metadata>

@@ -45,6 +45,6 @@ taskExecTime {
 
 languageConfig {
     languagePath 'app/src/main/res'
-    setLanguages(['values': 'http://multi-lang.yy.com/multiLangBig/GirGir/Client___1_0_0/en.json'])
-    setUpdateKeys(['login_userinfo_return_btn_cancel'])
+    setLanguages(['values': 'http://multi-lang-api.yy.com/multiLangBig/GirGir/Client___1_0_0/en.json'])
+    setUpdateKeys([])
 }

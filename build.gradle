@@ -6,18 +6,18 @@ buildscript {
         google()
         jcenter()
         //远程地址，等添加到jcenter后可去掉
-        maven {
-            url 'https://dl.bintray.com/xl1/maven'
-        }
-        //本地地址
 //        maven {
-//            url uri('../GradleDemo/repo')
+//            url 'https://dl.bintray.com/xl1/maven'
 //        }
+        //本地地址
+        maven {
+            url uri('../GradleDemo/repo')
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.yy.tools:gradletools:$gradlePublishVersion"
+        classpath "com.yy.tools:gradletools:$gradleToolsVersion"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

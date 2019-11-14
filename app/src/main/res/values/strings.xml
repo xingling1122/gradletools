@@ -1,9 +1,12 @@
 <resources>
-  <string name="app_name">GradleDemo</string>
-  <string name="login_userinfo_return_btn_cancel">Cancel</string>
+  <string name="app_name">Gradle Demo</string>
+  <string name="regular_report_me_save">Save failed because \&quot;About me\&quot; contains sensitive words</string>
+  <string name="room_beinvited_exchange">You need %1$d diamonds for %2$d lollipop</string>
+  <string name="live_invited">Invited</string>
   <string name="live_invite_accepted">Accepted</string>
   <string name="room_apply_waiting_female">Waiting(%s)</string>
   <string name="room_apply_female">Apply for</string>
+  <string name="login_userinfo_return_btn_cancel">Cancel</string>
   <string name="login_userinfo_return_btn_yes">Go dating now</string>
   <string name="live_broadcast_fail">Start broadcast failed %d Please start again</string>
   <string name="safety_verification">Safety Verification</string>
@@ -83,7 +86,7 @@
   <string name="live_agreement">Go live means you have read the agreement and agree with it</string>
   <string name="room_ssendmessage">Text</string>
   <string name="room_sfollow">Follow</string>
-  <string name="room_commenddefaulttext">Let&amp;apos;s chat</string>
+  <string name="room_commenddefaulttext">Let\&apos;s chat</string>
   <string name="login_country_load_fail">Load Fail</string>
   <string name="login_request_sms_failed">Request verification code failed</string>
   <string name="login_countdown">Resend(%ds)</string>
@@ -112,7 +115,7 @@
   <string name="me_feedback_reason">Please select the type of problem you have</string>
   <string name="me_feedback">Feedback</string>
   <string name="me_recent">Recent visitors</string>
-  <string name="edit_profile">Edit profile</string>
+  <string name="edit_profile">My profile</string>
   <string name="me_follower_null">No follower yet</string>
   <string name="me_follower">Followers</string>
   <string name="me_following_null">No following yet</string>
@@ -170,7 +173,7 @@
   <string name="live_agree">Agree</string>
   <string name="live_agreement_fail">The contract failed to load and the broadcast failed.</string>
   <string name="live_go">Go Live</string>
-  <string name="live_title_default">%s&amp;apos;s dating room</string>
+  <string name="live_title_default">%s\&apos;s dating room</string>
   <string name="live_title_null">With title is more attractive</string>
   <string name="live_cover_change">Change</string>
   <string name="live_cancel">Cancel</string>
@@ -200,8 +203,8 @@
   <string name="confirm">Yes</string>
   <string name="exitroom_1">Are you sure to leave chat room?</string>
   <string name="mission_buttontext">Try it now</string>
-  <string name="mission_description">Use &amp;quot;Lollipop&amp;quot; to join the chat for free</string>
-  <string name="mission_title">Welcome! Here&amp;apos;s A Gift for you!</string>
+  <string name="mission_description">Use \&quot;Lollipop\&quot; to join the chat for free</string>
+  <string name="mission_title">Welcome! Here\&apos;s A Gift for you!</string>
   <string name="roomlist_hosticon">Host</string>
   <string name="discovery_title">Meet Your Soulmate</string>
   <string name="login_facebook">Facebook</string>
@@ -248,8 +251,8 @@
   <string name="allow_permission_album_title">%s want to access your album</string>
   <string name="allow_permission_album_text">For sharing photos from your album</string>
   <string name="allow_permission_ok">Allow</string>
-  <string name="login_allow_permission_in_setting_hint">The camera failed to open. Please allow &amp;quot;%s&amp;quot; to access the camera in &amp;apos;settings&amp;apos;</string>
-  <string name="login_allow_permission_in_setting_hint1">Album access failed, please allow &amp;quot;%s&amp;quot; to access the album in &amp;apos;settings&amp;apos;</string>
+  <string name="login_allow_permission_in_setting_hint">The camera failed to open. Please allow \&quot;%s\&quot; to access the camera in \&apos;settings\&apos;</string>
+  <string name="login_allow_permission_in_setting_hint1">Album access failed, please allow \&quot;%s\&quot; to access the album in \&apos;settings\&apos;</string>
   <string name="login_allow_permission_in_setting_hint2">Go setting</string>
   <string name="login_allow_permission_in_setting_hint3">Cancel</string>
   <string name="login_sex">Gender</string>
@@ -341,5 +344,9 @@
   <string name="profile_save_tips">Something changed. Do you want to save it？</string>
   <string name="profile_save_save">Save</string>
   <string name="profile_save_failed">Failed to save. Please try again later.</string>
-  <string name="live_invited">Invited</string>
+  <string name="ios_permission_desc_album_write">So you can edit your profile picture or save screenshot</string>
+  <string name="ios_permission_desc_album_read">We will access your album when you use functions such as Posting pictures</string>
+  <string name="ios_permission_desc_mic">We\&apos;ll use your microphone when you\&apos;re using features like live streaming</string>
+  <string name="ios_permission_desc_gps">We\&apos;ll use your location when you\&apos;re using features like live \&apos;neraby\&apos;</string>
+  <string name="ios_permission_desc_camera">We\&apos;ll use your camera when you\&apos;re using features like live streaming</string>
 </resources>
