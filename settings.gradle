@@ -1,0 +1,2 @@
+include ':app', ':gradletools'
+rootProject.name='GradleDemo'
