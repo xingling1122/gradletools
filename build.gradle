@@ -10,8 +10,9 @@ buildscript {
 //            url 'https://dl.bintray.com/xl1/maven'
 //        }
         //本地地址
+        maven { url 'plugins' }
         maven {
-            url uri('../GradleDemo/repo')
+            url 'https://dl.bintray.com/xl1/maven'
         }
     }
     dependencies {

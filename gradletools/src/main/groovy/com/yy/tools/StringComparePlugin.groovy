@@ -2,6 +2,7 @@ package com.yy.tools
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import groovy.json.JsonOutput
 
 /**
  * 字符串增量更新工具
@@ -19,7 +20,7 @@ class StringComparePlugin implements Plugin<Project> {
                     @Override
                     void onSuccess(Map<String, String> data) {
                         println "request json success,data:$data"
-                        handleLanguage(locLanguagePath, data, languageConfig.updateKeys)
+                        handleLanguage(locLanguagePath, data, languageConfig.updateKeys, language.key, languageConfig.multiParamsJsonPath)
                     }
 
                     @Override
@@ -36,12 +37,13 @@ class StringComparePlugin implements Plugin<Project> {
      * @param locLanguagePath
      * @param data
      */
-    static void handleLanguage(String locLanguagePath, Map<String, String> data, List<String> updateKeys) {
+    static StringMultiParamData handleLanguage(String locLanguagePath, Map<String, String> data,
+                                               List<String> updateKeys, String language, String multiParamPath) {
         println "locLanguagePath:$locLanguagePath"
         def xmlParser = new XmlParser()
         def result = xmlParser.parse(locLanguagePath)
         //增量替换本地已有的key
-        List<String> locKeys = new ArrayList<>()
+        List<String> locKeys = new ArrayList<String>()
         result.string.each { Node stringNode ->
             def key = stringNode.attribute('name')
             locKeys.add(key)
@@ -55,6 +57,10 @@ class StringComparePlugin implements Plugin<Project> {
         }
         //增加多语言平台新增的key
         println "开始增量新增，locKeys:$locKeys"
+
+        StringMultiParamData stringMultiParamData = new StringMultiParamData()
+        stringMultiParamData.language = language
+        List<StringMultiParam> stringMultiParamList = new ArrayList<StringMultiParam>()
         data.each { Map.Entry<String, String> entry ->
             //说明这个key需要更新
             if (updateKeys.isEmpty() || updateKeys.contains(entry.key)) {
@@ -63,6 +69,17 @@ class StringComparePlugin implements Plugin<Project> {
                     println "增加多语言平台新增的key,newNode:$newNode"
                 }
             }
+            StringMultiParam stringMultiParam = new StringMultiParam()
+            stringMultiParam.key = entry.key
+            stringMultiParam.paramCount = getSubCount(entry.value, "%")
+            println "stringMultiParamData paramCount:$stringMultiParam.paramCount"
+            if (stringMultiParam.paramCount > 0) {
+                stringMultiParamList.add(stringMultiParam)
+            }
+        }
+        if (language.equals("values")) {
+            stringMultiParamData.stringMultiParamList = stringMultiParamList
+            writeToFile(multiParamPath, JsonOutput.toJson(stringMultiParamData))
         }
         println "结束，resource：${result}"
         def fileWriter = new FileWriter(locLanguagePath)
@@ -78,20 +95,40 @@ class StringComparePlugin implements Plugin<Project> {
      */
     static String formatContent(String content) {
         def result = content.trim()
-        def escapeMap = ['\\>': '\\&gt;',
-                         '>': '\\&gt;',
-                         '\\<': '\\&lt;',
-                         '<': '\\&lt;',
+        def escapeMap = ['\\>' : '\\&gt;',
+                         '>'   : '\\&gt;',
+                         '\\<' : '\\&lt;',
+                         '<'   : '\\&lt;',
                          '\\\'': '\\&apos;',
-                         '\'': '\\&apos;',
-                         '\\"': '\\&quot;',
-                         '"': '\\&quot;',
-                         '%@': '%s']
+                         '\''  : '\\&apos;',
+                         '\\"' : '\\&quot;',
+                         '"'   : '\\&quot;',
+                         '%@'  : '%s']
         escapeMap.each { Map.Entry<String, String> entry ->
             println "old:${entry.key},new:${entry.value}"
             result = result.replace(entry.key, entry.value)
         }
         println "formatContent,content:$content,result:$result"
         return result
+    }
+
+    static int getSubCount(String str, String key) {
+        int count = 0;
+        for (int index = 0; (index = str.indexOf(key, index)) != -1; ++count) {
+            index += key.length();
+        }
+        return count;
+    }
+
+    static void writeToFile(String filename, String value) {
+        println "stringMultiParamData value:$value filename:$filename"
+        def file = new File(filename)
+        if (file.exists()) {
+            file.delete()
+        }
+        def printWriter = file.newPrintWriter()
+        printWriter.write(value)
+        printWriter.flush()
+        printWriter.close()
     }
 }
