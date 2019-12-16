@@ -45,6 +45,10 @@ taskExecTime {
 
 languageConfig {
     languagePath 'app/src/main/res'
-    setLanguages(['values': 'http://multi-lang-api.yy.com/multiLangBig/GirGir/Client___1_0_0/en.json'])
+    multiParamsJsonPath 'app/src/main/assets/multiParamJson.txt'
+    setLanguages(['values'   : 'http://multi-lang-api.yy.com/multiLangBig/GirGir/Client___1_0_0/en.json',
+                  'values-hi': 'http://multi-lang-api.yy.com/multiLangBig/GirGir/Client___1_0_0/hi.json'])
     setUpdateKeys([])
+    removeLanguagePath 'app/src/main/res/values/strings_new.xml'
+    defaultRemoteLanguagePath 'http://multi-lang-api.yy.com/multiLangBig/GirGir/Client___1_0_0/en.json'
 }

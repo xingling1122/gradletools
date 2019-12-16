@@ -11,13 +11,20 @@ class StringCompareExt {
     Map<String, String> languages = new ConcurrentHashMap<>()
     //需要更新的语言key
     List<String> updateKeys = new ArrayList<>()
+    //从该路径直接移除多语言平台已有的key
+    String removeLanguagePath
+    //默认远程多语言地址
+    String defaultRemoteLanguagePath
 
     @Override
     public String toString() {
         return "StringCompareExt{" +
                 "languagePath='" + languagePath + '\'' +
+                ", multiParamsJsonPath='" + multiParamsJsonPath + '\'' +
                 ", languages=" + languages +
                 ", updateKeys=" + updateKeys +
-                '}'
+                ", removeLanguagePath='" + removeLanguagePath + '\'' +
+                ", defaultRemoteLanguagePath='" + defaultRemoteLanguagePath + '\'' +
+                '}';
     }
 }

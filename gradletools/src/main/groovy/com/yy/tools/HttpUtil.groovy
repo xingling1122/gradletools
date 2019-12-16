@@ -10,6 +10,11 @@ import groovyx.net.http.Method
 class HttpUtil {
 
     static void request(String url, DataCallback<Map<String, String>> callback) {
+        println "url:$url"
+        if (url == null || url.isEmpty()) {
+            callback.onFail(-1, "url is empty")
+            return
+        }
         def http = new HTTPBuilder(url)
         http.request(Method.GET, ContentType.JSON) { req ->
             response.success = { resp, json ->

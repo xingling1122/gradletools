@@ -10,10 +10,10 @@ buildscript {
 //            url 'https://dl.bintray.com/xl1/maven'
 //        }
         //本地地址
-        maven { url 'plugins' }
-        maven {
-            url 'https://dl.bintray.com/xl1/maven'
-        }
+        maven { url '../GradleDemo/repo' }
+//        maven {
+//            url 'https://dl.bintray.com/xl1/maven'
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
