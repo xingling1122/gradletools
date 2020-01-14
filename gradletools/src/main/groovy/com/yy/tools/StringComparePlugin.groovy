@@ -208,9 +208,12 @@ class StringComparePlugin implements Plugin<Project> {
     }
 
     static void save(String path, Node result) {
-        def fileWriter = new FileWriter(path)
-        def printer = new CustomXmlNodePrinter(new PrintWriter(fileWriter))
+//        def fileWriter = new FileWriter(path)
+        def writer = new PrintWriter(path, "utf-8")
+        def printer = new CustomXmlNodePrinter(writer)
         printer.preserveWhitespace = true
         printer.print(result)
+//        fileWriter.close()
+        writer.close()
     }
 }
