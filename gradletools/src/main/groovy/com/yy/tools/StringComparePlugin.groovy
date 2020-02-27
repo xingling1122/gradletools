@@ -174,7 +174,9 @@ class StringComparePlugin implements Plugin<Project> {
                          '\''  : '\\&apos;',
                          '\\"' : '\\&quot;',
                          '"'   : '\\&quot;',
-                         '%@'  : '%s']
+                         '%@'  : '%s',
+                         '\n'  : '\\n',
+                         '/n'  : '\\n']
         escapeMap.each { Map.Entry<String, String> entry ->
             println "old:${entry.key},new:${entry.value}"
             result = result.replace(entry.key, entry.value)
